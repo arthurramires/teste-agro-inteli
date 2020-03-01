@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Text, TouchableOpacity, StyleSheet, View} from 'react-native';
+import {Text, TouchableOpacity, StyleSheet, View, Image} from 'react-native';
 import { SliderBox } from "react-native-image-slider-box";
+import headerImage from '../assets/header.png';
 export default class index extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +17,10 @@ export default class index extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <SliderBox  sliderBoxHeight={600} images={this.state.images} dotColor="#32CD32" autoplay circleLoop 
+                <View style={styles.header}>
+                    <Image source={headerImage} style={{marginLeft: -40, marginTop: 25}}/>
+                </View>
+                <SliderBox  sliderBoxHeight={400} images={this.state.images} dotColor="#32CD32" autoplay circleLoop 
                 dotStyle={{
                     width: 20,
                     height: 8,
@@ -49,6 +53,14 @@ const styles = StyleSheet.create({
         marginTop: 54,
         width: 260,
         alignSelf: 'center',
+    },
+    header: {
+        width: 400,
+        height:100,
+        marginTop: 0,
+        backgroundColor: '#32CD32',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 
